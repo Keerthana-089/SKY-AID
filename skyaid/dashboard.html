@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - Sky Aid</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      text-align: center;
+      background: url('bg1.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 46px;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+
+    .container {
+      margin: 30px auto;
+      max-width: 900px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+
+    .disaster-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .disaster-option {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      width: 160px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .disaster-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+
+    .disaster-option img {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+
+    .alert {
+      font-size: 22px;
+      margin: 30px 0 20px;
+      padding: 15px;
+      background: rgba(255, 0, 0, 0.8);
+      border-radius: 12px;
+      animation: blink 1s infinite;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .resource-btn {
+      padding: 14px 25px;
+      background: #48cae4;
+      border-radius: 8px;
+      font-size: 17px;
+      margin-top: 20px;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    }
+
+    .resource-btn:hover {
+      background: #0077b6;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Sky Aid Dashboard</h1>
+
+  <div class="container">
+    <h3>Are you facing any issues?</h3>
+
+    <div class="disaster-options">
+      <div class="disaster-option">
+        <img src="f2.jpg" alt="Flood">
+        <button>Flood</button>
+      </div>
+
+      <div class="disaster-option">
+        <img src="t1.jpg" alt="Thunderstorm">
+        <button>Thunderstorm</button>
+      </div>
+
+      <div class="disaster-option">
+        <img src="d1.png" alt="Drought">
+        <button>Drought</button>
+      </div>
+    </div>
+
+    <div class="alert">⚠️ Disaster Alert Active</div>
+
+    <button class="resource-btn" onclick="location.href='resources.html'">Request Resources</button>
+    <button class="resource-btn" onclick="location.href='contacts.html'">Emergency Contacts</button>
+
+  </div>
+
+</body>
+</html>

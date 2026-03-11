@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home - Sky Aid</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      text-align: center;
+      background: url('bg1.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 55px;
+      margin-bottom: 15px;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      animation: fadeInDown 1.5s ease;
+    }
+
+    .tagline {
+      font-size: 22px;
+      color: #f0f0f0;
+      margin-bottom: 40px;
+      animation: fadeInUp 2s ease;
+    }
+
+    .container {
+      margin: 80px auto;
+      max-width: 720px;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      animation: fadeIn 2s ease;
+    }
+
+    .weather-card {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 18px;
+      margin-bottom: 35px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+    }
+
+    .weather-card img {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    #weatherInfo {
+      font-size: 20px;
+      margin-top: 12px;
+    }
+
+    button {
+      padding: 16px 36px;
+      font-size: 20px;
+      background: #00b4d8;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: background 0.4s ease, transform 0.2s ease;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 5px 18px rgba(0,0,0,0.4);
+    }
+
+    button:hover {
+      background: #0077b6;
+      transform: scale(1.05);
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #ccc;
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 15px #00b4d8; }
+      50% { transform: scale(1.05); box-shadow: 0 0 25px #00d4ff; }
+      100% { transform: scale(1); box-shadow: 0 0 15px #00b4d8; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🚁 Sky Aid</h1>
+  <p class="tagline">Your trusted emergency assistance hub</p>
+
+  <div class="container">
+    <div class="weather-card">
+      <img id="weatherImage" src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="Live Weather Icon" style="width:100px; height:100px; border-radius:50%; box-shadow:0 0 10px rgba(255,255,255,0.3);">
+      <h3 id="weatherInfo">Fetching live weather data...</h3>
+    </div>
+
+    <button onclick="location.href='dashboard.html'">Proceed to Dashboard</button>
+  </div>
+
+  <div class="footer">
+    Sky Aid systems operational ✅
+  </div>
+
+  <!-- Demo JSON Placeholder Fetch Script -->
+  <script>
+    // Simulating a dummy weather response
+    const dummyWeather = {
+      temp: 31,
+      condition: "clear sky"
+    };
+
+    // Simulate fetch delay like real API
+    setTimeout(() => {
+      const weatherInfo = `🌡️ ${dummyWeather.temp}°C, ${dummyWeather.condition.charAt(0).toUpperCase() + dummyWeather.condition.slice(1)} in Hyderabad`;
+      document.getElementById("weatherInfo").innerHTML = weatherInfo;
+    }, 1500);
+  </script>
+
+</body>
+</html>

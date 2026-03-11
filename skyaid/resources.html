@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resources - Sky Aid</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      text-align: center;
+      background: url('bg1.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      color: #fff;
+      animation: fadeIn 1.2s ease;
+    }
+
+    h2 {
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+      margin-bottom: 30px;
+    }
+
+    .resource-options {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .resource-option {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 20px;
+      border-radius: 15px;
+      width: 160px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .resource-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    .resource-option img {
+      max-width: 80px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+    }
+
+    .resource-option label {
+      display: block;
+      margin-top: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 14px 30px;
+      margin: 10px;
+      background: #00b4d8;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    }
+
+    button:hover {
+      background: #0077b6;
+      transform: scale(1.05);
+    }
+
+    .mission-status {
+      display: none;
+      margin-top: 40px;
+      padding: 25px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .mission-status h3 {
+      margin: 0 0 20px;
+      font-size: 22px;
+    }
+
+    .progress-bar {
+      height: 14px;
+      background: #333;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-bar-inner {
+      height: 14px;
+      width: 0;
+      background: #00b4d8;
+      transition: width 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Select Required Items</h2>
+
+  <div class="resource-options">
+    <div class="resource-option">
+      <img src="food.webp" alt="Food">
+      <input type="checkbox" id="food">
+      <label for="food">Food</label>
+    </div>
+
+    <div class="resource-option">
+      <img src="medicines.png" alt="Medicines">
+      <input type="checkbox" id="medicines">
+      <label for="medicines">Medicines</label>
+    </div>
+
+    <div class="resource-option">
+      <img src="water.png" alt="Water">
+      <input type="checkbox" id="water">
+      <label for="water">Water</label>
+    </div>
+
+    <div class="resource-option">
+      <img src="powerbank.png" alt="Power Bank">
+      <input type="checkbox" id="powerbank">
+      <label for="powerbank">Power Bank</label>
+    </div>
+
+    <div class="resource-option">
+      <img src="firstaid.png" alt="First Aid Kit">
+      <input type="checkbox" id="firstaid">
+      <label for="firstaid">First Aid Kit</label>
+    </div>
+  </div>
+
+  <button onclick="startDispatch()">🚁 Confirm Dispatch</button>
+  <button onclick="location.href='home.html'">Back</button>
+
+  <div id="missionStatus" class="mission-status">
+    <h3 id="statusText">Preparing drone for dispatch...</h3>
+    <div class="progress-bar">
+      <div id="progressBar" class="progress-bar-inner"></div>
+    </div>
+  </div>
+
+  <script>
+    function startDispatch() {
+      let selected = [];
+      document.querySelectorAll('.resource-option input[type="checkbox"]').forEach(item => {
+        if(item.checked) {
+          selected.push(item.nextElementSibling.innerText);
+          item.checked = false;
+        }
+      });
+
+      if(selected.length === 0) {
+        alert("Please select at least one item!");
+        return;
+      }
+
+      alert("🚁 Drone dispatched with: " + selected.join(", "));
+
+      // Show mission status panel
+      document.getElementById("missionStatus").style.display = "block";
+      document.getElementById("statusText").innerText = "Drone preparing for dispatch...";
+      document.getElementById("progressBar").style.width = "0";
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 20;
+        document.getElementById("progressBar").style.width = progress + "%";
+
+        if(progress === 40) {
+          document.getElementById("statusText").innerText = "Loading resources onto drone...";
+        }
+        if(progress === 80) {
+          document.getElementById("statusText").innerText = "Drone in transit...";
+        }
+        if(progress >= 100) {
+          clearInterval(interval);
+          document.getElementById("statusText").innerText = "✅ Drone dispatched successfully!";
+        }
+      }, 800);
+    }
+  </script>
+
+</body>
+</html>

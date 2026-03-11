@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Emergency Contacts - Sky Aid</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      text-align: center;
+      background: url('bg1.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: rgba(0, 0, 0, 0.65);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      animation: fadeIn 1.5s ease;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    }
+
+    .contact-card h3 {
+      margin: 0;
+      margin-bottom: 10px;
+      font-size: 22px;
+    }
+
+    .contact-card img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 12px;
+      animation: pulse 2s infinite;
+    }
+
+    a {
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    button {
+      padding: 14px 30px;
+      background: #00b4d8;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      font-size: 17px;
+    }
+
+    button:hover {
+      background: #0077b6;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>📞 Emergency Contacts</h2>
+
+    <div class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/3064/3064081.png" alt="Police Icon">
+      <h3>🚓 Police</h3>
+      <a href="tel:100">Call 100</a>
+    </div>
+
+    <div class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2965/2965567.png" alt="Ambulance Icon">
+      <h3>🚑 Ambulance</h3>
+      <a href="tel:108">Call 108</a>
+    </div>
+
+    <div class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/482/482059.png" alt="Fire Icon">
+      <h3>🚒 Fire Services</h3>
+      <a href="tel:101">Call 101</a>
+    </div>
+
+    <div class="contact-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/854/854894.png" alt="Hospital Icon">
+      <h3>🏥 Nearest Hospital</h3>
+      <a href="https://www.google.com/maps/search/hospital+near+me/" target="_blank">📍 View on Map</a>
+    </div>
+
+    <button onclick="location.href='dashboard.html'">⬅ Back to Dashboard</button>
+
+  </div>
+
+</body>
+</html>

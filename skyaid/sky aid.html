@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sky Aid</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      background: url('bg1.png') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .container {
+      margin: 120px auto;
+      max-width: 500px;
+      padding: 50px;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 25px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 18px;
+      color: #fff;
+      text-shadow: 2px 2px 8px rgba(0,255,255,0.6);
+    }
+
+    .tagline {
+      font-size: 22px;
+      margin-bottom: 35px;
+      color: #e0e0e0;
+      animation: fadeInMove 2.5s ease forwards;
+      opacity: 0;
+    }
+
+    button {
+      padding: 16px 36px;
+      font-size: 20px;
+      background: #00b4d8;
+      border: none;
+      border-radius: 12px;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.4s ease;
+      animation: pulse 1.8s infinite;
+      box-shadow: 0 0 15px rgba(0,180,216,0.4);
+    }
+
+    button:hover {
+      background: #0077b6;
+      transform: scale(1.06);
+      box-shadow: 0 0 25px rgba(0,180,216,0.7);
+    }
+
+    .logo {
+      width: 85px;
+      height: 85px;
+      transition: transform 0.6s ease;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .logo:hover {
+      transform: rotate(360deg);
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 14px;
+      color: #ccc;
+      text-shadow: 0 0 5px rgba(0,0,0,0.6);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInMove {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 15px rgba(0,180,216,0.4);}
+      50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(0,212,255,0.6);}
+      100% { transform: scale(1); box-shadow: 0 0 15px rgba(0,180,216,0.4);}
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="logo.jpg" alt="Sky Aid Logo" class="logo">
+    <h1>🚁 SKY AID</h1>
+    <p class="tagline">Your trusted emergency support assistant</p>
+    <button onclick="location.href='login.html'">Login</button>
+  </div>
+
+  <div class="footer">
+    © 2025 Sky Aid • Designed by Keer 🚁
+  </div>
+
+</body>
+</html>
