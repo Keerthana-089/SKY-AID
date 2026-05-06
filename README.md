@@ -86,5 +86,3 @@ in your web browser.
 ## Author
 
 Keerthana C
-B.Tech Computer Science Engineering
-KLH University
